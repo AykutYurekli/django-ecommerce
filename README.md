@@ -27,13 +27,17 @@ A simple Django Ecommerce project built with **Django**.
    ```bash
    git clone https://github.com/AykutYurekli/django-ecommerce.git
 
-Install Django: pip install django
+# Install Django.
+pip install django
 
-Apply migrations: python manage.py migrate
+# Apply migrations.
+python manage.py migrate
 
-To add initial products and categories, load the provided fixtures: python manage.py loaddata products/fixtures/products.json
+# To add initial products and categories, load the provided fixtures.
+python manage.py loaddata products/fixtures/products.json
 
-Create a superuser for admin access: python manage.py createsuperuser
+# Create a superuser for admin access.
+python manage.py createsuperuser
 
 Run the development server: python manage.py runserver
 
