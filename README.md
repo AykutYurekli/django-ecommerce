@@ -39,14 +39,21 @@ python manage.py loaddata products/fixtures/products.json
 # Create a superuser for admin access.
 python manage.py createsuperuser
 
-Run the development server: python manage.py runserver
+# Run the development server.
+python manage.py runserver
 
-Access the admin panel at: http://127.0.0.1:8000/admin/
+# Access the admin panel.
+http://127.0.0.1:8000/admin
 
-Log in with the superuser account you created.
+# Log in with the superuser account you created.
 
-And products such as: Sneaker, Boot, Casual Shoe, Baseball Cap, Red Cap, Cowboy Hat, Beret, Blue Shirt, T-Shirts, Sweatshirts, Glasses, Ring, Scarf, Wristwatch
+# Sample products include:
+Sneaker, Boot, Casual Shoe, Baseball Cap, Red Cap, Cowboy Hat, Beret, Blue Shirt, T-Shirts, Sweatshirts, Glasses, Ring, Scarf, Wristwatch.
 
-Usage: Visit the homepage at: http://127.0.0.1:8000/home
-
-Users can: Register & log in
+## Usage
+- Run the development server
+- Access the admin panel  
+- Log in with the superuser account  
+- Browse sample products  
+- Visit the homepage at: http://127.0.0.1:8000/home
+- Users can register and log in
