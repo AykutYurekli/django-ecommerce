@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'products/images/' %}{{ product.image_name }}" class="img-fluid" alt="{{ product.name }}" style="max-height:350px; object-fit:contain;">
+        </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.name }}</h3>
+                        <h5 class="card-subtitle mb-2 text-success">₺{{ product.price }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{% url 'cart:cart_add' product.id %}" class="btn btn-outline-primary">Add to Cart</a>
+                        <a href="{% url 'cart:cart_add' product.id %}?next=checkout" class="btn btn-outline-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <h3 class="mt-5">similar products</h3>
+    <div class="row">
+        {% for sp in similar_products %}
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="{% url 'products:product_detail' sp.pk %}">
+                    <img src="{% static 'products/images/' %}{{ sp.image_name }}" class="card-img-top" alt="{{ sp.name }}" style="max-height:200px; object-fit:contain;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ sp.name }}</h5>
+                    <p class="text-success">₺{{ sp.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Not found similar products.</p>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="background-color:white;">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <a href="{% url 'products:product_category_tshirt' %}">
+        <img src="{% static 'home/images/TshirtCategory.jpg' %}" class="d-block w-100" alt="Tshirt" style="height:400px; object-fit:contain;">
+      </a>
+    </div>
+
+    <div class="carousel-item">
+      <a href="{% url 'products:product_category_shoe' %}">
+        <img src="{% static 'home/images/ShoeCategory.jpg' %}" class="d-block w-100" alt="Shoe" style="height:400px; object-fit:contain;">
+      </a>
+    </div>
+
+    <div class="carousel-item">
+      <a href="{% url 'products:product_category_hat' %}">
+        <img src="{% static 'home/images/HatCategory.png' %}" class="d-block w-100" alt="Hat" style="height:400px; object-fit:contain;">
+      </a>
+    </div>
+
+    <div class="carousel-item">
+      <a href="{% url 'products:product_category_accessories' %}">
+        <img src="{% static 'home/images/AccessoriesCategory.jpg' %}" class="d-block w-100" alt="Accessories" style="height:400px; object-fit:contain;">
+      </a>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" style="filter: invert(1);" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" style="filter: invert(1);" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+
+{% endblock %}
+

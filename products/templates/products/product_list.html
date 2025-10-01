@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+
+    <form method="get" class="mb-4 d-flex gap-2">
+        <select name="color" class="form-select w-auto">
+            <option value="">Colors</option>
+            <option value="Blue" {% if request.GET.color == "Blue" %}selected{% endif %}>Blue</option>
+            <option value="Red" {% if request.GET.color == "Red" %}selected{% endif %}>Red</option>
+            <option value="Black" {% if request.GET.color == "Black" %}selected{% endif %}>Black</option>
+            <option value="Brown" {% if request.GET.color == "Brown" %}selected{% endif %}>Brown</option>
+            <option value="White" {% if request.GET.color == "White" %}selected{% endif %}>White</option>
+            <option value="Green" {% if request.GET.color == "Green" %}selected{% endif %}>Green</option>
+
+        </select>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products %}
+    <div class="col">
+        <div class="card h-100">
+            <a href="{% url 'products:product_detail' product.id %}">
+                <img src="{% static 'products/images/' %}{{ product.image_name }}" class="card-img-top" alt="{{ product.name }}">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.price }} TL</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

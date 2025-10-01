@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Order Detail{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card border-light">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Order #{{ order.id }}</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Name:</strong> {{ order.name }}</p>
+                    <p><strong>Email:</strong> {{ order.email }}</p>
+                    <p><strong>Address:</strong> {{ order.address }}, {{ order.city }}</p>
+                    <p><strong>Phone:</strong> {{ order.phone }}</p>
+                    <p><strong>Created at:</strong> {{ order.created_at|date:"d M Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card border-light">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Products</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order.items.all %}
+                            <tr>
+                                <td>{{ item.product.name }}</td>
+                                <td>{{ item.amount }}</td>
+                                <td>₺{{ item.price }}</td>
+                                <td>₺{{ item.total_price }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="text-end p-2">
+                        <strong>Total: ₺{{ total }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
