@@ -40,9 +40,7 @@ Access the admin panel at: http://127.0.0.1:8000/admin/
 
 Log in with the superuser account you created.
 
-To add initial products and categories, load the provided fixtures:
-
-python manage.py loaddata products/fixtures/products.json
+To add initial products and categories, load the provided fixtures: python manage.py loaddata products/fixtures/products.json
 
 This will populate your database with predefined categories such as: Shoe, Hat, T-Shirt, Accessories, Pant, Beret, Sweatshirt, Shirt, Short
 
